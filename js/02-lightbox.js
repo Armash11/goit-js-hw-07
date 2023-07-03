@@ -4,9 +4,9 @@ const cardsMarkup = galleryItems
   .map(
     ({ preview, original, description }) => `
     <li class="gallery__item">
-   <a class="gallery__link" href="${original}">
+  <a class="gallery__link" href="${original}">
       <img class="gallery__image" src="${preview}" alt="${description}" />
-   </a>
+  </a>
 </li>`
   )
   .join("");

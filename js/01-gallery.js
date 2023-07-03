@@ -16,11 +16,10 @@ const cardsMarkup = galleryItems
   </li>`
   )
   .join("");
-
 gallery.insertAdjacentHTML("beforeend", cardsMarkup);
-gallery.addEventListener("click", onShowImege);
+gallery.addEventListener("click", onShowImage);
 
-function onShowImege(evt) {
+function onShowImage(evt) {
   evt.preventDefault();
 
   const isGalleryImage = evt.target.classList.contains("gallery__image");
@@ -32,6 +31,13 @@ function onShowImege(evt) {
   const instance = basicLightbox.create(`
     <img class="gallery__image" src="${currentItem}" alt="Image description" width="800" height="600">
 `);
-
   instance.show();
+
+  document.addEventListener("keydown", onKeyPress);
+  function onKeyPress(evt) {
+    if (evt.key === "Escape") {
+      instance.close();
+      document.removeEventListener("keydown", onKeyPress);
+    }
+  }
 }
