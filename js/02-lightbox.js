@@ -12,7 +12,6 @@ const cardsMarkup = galleryItems
   .join("");
 
 gallery.insertAdjacentHTML("beforeend", cardsMarkup);
-gallery.addEventListener("click", onShowImege);
 
 function onShowImege(evt) {
   evt.preventDefault();
@@ -22,10 +21,9 @@ function onShowImege(evt) {
     return;
   }
 }
-document.addEventListener("DOMContentLoaded", function () {
-  const lightbox = new SimpleLightbox(".gallery a", {
-    captionsData: "alt",
-    captionPosition: "bottom",
-    animationSpeed: 250,
-  });
+
+const lightbox = new SimpleLightbox(".gallery a", {
+  captionsData: "alt",
+  captionPosition: "bottom",
+  animationSpeed: 250,
 });
